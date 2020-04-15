@@ -35,7 +35,7 @@ object FlavourImpl {
       Set(Versions.runtime) ++ (if (shouldUseScalaJsDomTypes) Set(Versions.scalaJsDom) else Set.empty)
 
     val genCompanions: GenCompanions =
-      new GenCompanions(MemberToProp.Default, findProps)
+      new GenCompanions(MemberToProp.Default, findProps, genImplicitSyntax = false)
 
     final override def rewrittenTree(scope: TreeScope, tree: PackageTree): PackageTree = {
       val withCompanions = genCompanions.visitPackageTree(scope)(tree)
@@ -65,7 +65,7 @@ object FlavourImpl {
     val gen = new GenSlinkyComponents(GenSlinkyComponents.Native(()), MemberToProp.Default, findProps)
 
     val genCompanions: GenCompanions =
-      new GenCompanions(MemberToProp.Default, findProps)
+      new GenCompanions(MemberToProp.Default, findProps, genImplicitSyntax = false)
 
     final override def rewrittenTree(scope: TreeScope, tree: PackageTree): PackageTree = {
       val withCompanions = genCompanions.visitPackageTree(scope)(tree)
@@ -87,7 +87,7 @@ object FlavourImpl {
     override val dependencies: Set[Dep] =
       Set(Versions.runtime, Versions.scalajsReact)
     val genCompanions: GenCompanions =
-      new GenCompanions(gen.memberToProp, findProps)
+      new GenCompanions(gen.memberToProp, findProps, genImplicitSyntax = false)
 
     final override def rewrittenTree(scope: TreeScope, tree: PackageTree): PackageTree = {
       val withCompanions = genCompanions.visitPackageTree(scope)(tree)

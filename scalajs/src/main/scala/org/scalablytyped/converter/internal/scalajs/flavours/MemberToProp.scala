@@ -44,7 +44,12 @@ object MemberToProp {
 
               val main = Prop.Variant(param, Right(fn))
 
-              Some(Prop(main, isInherited, Right(f)))
+              val variants = apply(scope, f.copy(tpe = tpe), isInherited) match {
+                case Some(value) => value.variants :+ Prop.Undefined
+                case None        => IArray(main, Prop.Undefined)
+              }
+
+              Some(Prop(main, isInherited, variants, Right(f)))
 
             case Optional(dealiased) if TypeRef.Primitive(TypeRef(Erasure.simplify(scope / x, dealiased))) =>
               val param = ParamTree(
@@ -67,10 +72,14 @@ object MemberToProp {
                 )
 
               val main = Prop.Variant(param, Right(fn))
+              val variants = apply(scope, f.copy(tpe = dealiased), isInherited) match {
+                case Some(value) => value.variants :+ Prop.Undefined
+                case None        => IArray(main, Prop.Undefined)
+              }
 
-              Some(Prop(main, isInherited, Right(f)))
+              Some(Prop(main, isInherited, variants, Right(f)))
 
-            case Optional(TypeRef.Function(paramTypes, retType)) =>
+            case Optional(dealiased @ TypeRef.Function(paramTypes, retType)) =>
               if (paramTypes.contains(TypeRef.Nothing)) None // edge case which doesnt work
               else {
                 val defaultedTo = Null
@@ -99,10 +108,15 @@ object MemberToProp {
                   ),
                 )
 
-                Some(Prop(main, isInherited, Right(f)))
+                val variants = apply(scope, f.copy(tpe = dealiased), isInherited) match {
+                  case Some(value) => value.variants :+ Prop.Undefined
+                  case None        => IArray(main, Prop.Undefined)
+                }
+
+                Some(Prop(main, isInherited, variants, Right(f)))
               }
 
-            case Optional(_) =>
+            case Optional(dealiased) =>
               /* Undo effect of FollowAliases above */
               val tpe = Optional.unapply(origTpe).getOrElse(origTpe) match {
                 case TypeRef.Wildcard => TypeRef.Any
@@ -133,7 +147,12 @@ object MemberToProp {
 
               val main = Prop.Variant(param, Right(fn))
 
-              Some(Prop(main, isInherited, Right(f)))
+              val variants = apply(scope, f.copy(tpe = dealiased), isInherited) match {
+                case Some(value) => value.variants :+ Prop.Undefined
+                case None        => IArray(main, Prop.Undefined)
+              }
+
+              Some(Prop(main, isInherited, variants, Right(f)))
 
             case TypeRef.Function(paramTypes, retType) =>
               if (paramTypes.contains(TypeRef.Nothing)) None
@@ -163,9 +182,9 @@ object MemberToProp {
                     )
 
                 val main = Prop.Variant(param, expr)
-                Some(Prop(main, isInherited, Right(f)))
+                Some(Prop(main, isInherited, IArray(main), Right(f)))
               }
-            case _ =>
+            case dealiased =>
               val param = ParamTree(
                 name       = name,
                 isImplicit = false,
@@ -191,7 +210,14 @@ object MemberToProp {
 
               val main = Prop.Variant(param, asExpr)
 
-              Some(Prop(main, isInherited, Right(f)))
+              val variants =
+                dealiased match {
+                  case TypeRef.Union(types) =>
+                    types.mapNotNone(tpe => apply(scope, f.copy(tpe = tpe), isInherited)).flatMap(_.variants)
+                  case _ => IArray(main)
+                }
+
+              Some(Prop(main, isInherited, variants, Right(f)))
           }
 
         case _m: MethodTree =>
@@ -223,7 +249,7 @@ object MemberToProp {
               else Right(fn)
 
             val main = Prop.Variant(param, expr)
-            Some(Prop(main, isInherited, Right(m)))
+            Some(Prop(main, isInherited, IArray(main), Right(m)))
           }
       }
   }

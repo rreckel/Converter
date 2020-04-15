@@ -18,5 +18,37 @@ object ConsumerProps {
     if (unstable_observedBits != null) __obj.updateDynamic("unstable_observedBits")(unstable_observedBits.asInstanceOf[js.Any])
     __obj.asInstanceOf[ConsumerProps[T]]
   }
+  @scala.inline
+  implicit class ConsumerPropsOps[Self[t] <: ConsumerProps[t], T] (val x: Self[T]) extends AnyVal {
+    @scala.inline
+    def duplicate: Self[T] = (js.Dynamic.global.Object.assign(js.Dynamic.literal(), x)).asInstanceOf[Self[T]]
+    @scala.inline
+    def combineWith[Other /* <: js.Any */](other: Other): Self[T] with Other = (js.Dynamic.global.Object.assign(js.Dynamic.literal(), x, other.asInstanceOf[js.Any])).asInstanceOf[Self[T] with Other]
+    @scala.inline
+    def withChildren(children: T => TagMod[Any]): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("children")(js.Any.fromFunction1(children))
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withUnstable_observedBitsInt(unstable_observedBits: Int): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("unstable_observedBits")(unstable_observedBits.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withUnstable_observedBitsDouble(unstable_observedBits: Double): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("unstable_observedBits")(unstable_observedBits.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutUnstable_observedBits: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "unstable_observedBits")
+        ret.asInstanceOf[Self[T]]
+    }
+  }
+  
 }
 

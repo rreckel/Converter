@@ -461,5 +461,217 @@ object WebViewHTMLAttributes {
     if (webpreferences != null) __obj.updateDynamic("webpreferences")(webpreferences.asInstanceOf[js.Any])
     __obj.asInstanceOf[WebViewHTMLAttributes[T]]
   }
+  @scala.inline
+  implicit class WebViewHTMLAttributesOps[Self[t] <: WebViewHTMLAttributes[t], T] (val x: Self[T]) extends AnyVal {
+    @scala.inline
+    def duplicate: Self[T] = (js.Dynamic.global.Object.assign(js.Dynamic.literal(), x)).asInstanceOf[Self[T]]
+    @scala.inline
+    def combineWith[Other /* <: js.Any */](other: Other): Self[T] with Other = (js.Dynamic.global.Object.assign(js.Dynamic.literal(), x, other.asInstanceOf[js.Any])).asInstanceOf[Self[T] with Other]
+    @scala.inline
+    def withAllowFullScreen(allowFullScreen: Boolean): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("allowFullScreen")(allowFullScreen.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutAllowFullScreen: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "allowFullScreen")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withAllowpopups(allowpopups: Boolean): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("allowpopups")(allowpopups.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutAllowpopups: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "allowpopups")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withAutoFocus(autoFocus: Boolean): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("autoFocus")(autoFocus.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutAutoFocus: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "autoFocus")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withAutosize(autosize: Boolean): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("autosize")(autosize.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutAutosize: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "autosize")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withBlinkfeatures(blinkfeatures: String): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("blinkfeatures")(blinkfeatures.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutBlinkfeatures: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "blinkfeatures")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withDisableblinkfeatures(disableblinkfeatures: String): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("disableblinkfeatures")(disableblinkfeatures.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutDisableblinkfeatures: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "disableblinkfeatures")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withDisableguestresize(disableguestresize: Boolean): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("disableguestresize")(disableguestresize.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutDisableguestresize: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "disableguestresize")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withDisablewebsecurity(disablewebsecurity: Boolean): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("disablewebsecurity")(disablewebsecurity.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutDisablewebsecurity: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "disablewebsecurity")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withGuestinstance(guestinstance: String): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("guestinstance")(guestinstance.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutGuestinstance: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "guestinstance")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withHttpreferrer(httpreferrer: String): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("httpreferrer")(httpreferrer.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutHttpreferrer: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "httpreferrer")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withNodeintegration(nodeintegration: Boolean): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("nodeintegration")(nodeintegration.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutNodeintegration: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "nodeintegration")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withPartition(partition: String): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("partition")(partition.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutPartition: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "partition")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withPlugins(plugins: Boolean): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("plugins")(plugins.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutPlugins: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "plugins")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withPreload(preload: String): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("preload")(preload.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutPreload: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "preload")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withSrc(src: String): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("src")(src.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutSrc: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "src")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withUseragent(useragent: String): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("useragent")(useragent.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutUseragent: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "useragent")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withWebpreferences(webpreferences: String): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("webpreferences")(webpreferences.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutWebpreferences: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "webpreferences")
+        ret.asInstanceOf[Self[T]]
+    }
+  }
+  
 }
 

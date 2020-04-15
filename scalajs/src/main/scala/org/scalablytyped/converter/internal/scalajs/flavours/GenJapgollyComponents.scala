@@ -457,16 +457,16 @@ final class GenJapgollyComponents(reactNames: ReactNames, scalaJsDomNames: Scala
 
     val (refTypes, declaredChildren, _, _optionals, requireds, Empty) = {
       props.partitionCollect5(
-        { case Prop(Prop.Variant(ParamTree(names.ref, _, _, tpe, _, _), _), _, _) => tpe }, //refTypes
+        { case Prop(Prop.Variant(ParamTree(names.ref, _, _, tpe, _, _), _), _, _, _) => tpe }, //refTypes
         // take note of declared children, but saying `ReactNode` should be a noop
         {
-          case p @ Prop(Prop.Variant(ParamTree(names.children, _, _, tpe, _, _), _), _, _)
+          case p @ Prop(Prop.Variant(ParamTree(names.children, _, _, tpe, _, _), _), _, _, _)
               if !isVdomNode(tpe.typeName) =>
             p
         }, //declaredChildren
-        { case Prop(Prop.Variant(paramTree, _), _, _) if shouldIgnore(paramTree) => null },
-        { case Prop(Prop.Variant(p, Right(f)), _, _)                             => p -> f }, //optionals
-        { case Prop(Prop.Variant(p, Left(expr)), _, _)                           => p -> expr }, //requireds
+        { case Prop(Prop.Variant(paramTree, _), _, _, _) if shouldIgnore(paramTree) => null },
+        { case Prop(Prop.Variant(p, Right(f)), _, _, _)                             => p -> f }, //optionals
+        { case Prop(Prop.Variant(p, Left(expr)), _, _, _)                           => p -> expr }, //requireds
       )
     }
 
@@ -535,9 +535,9 @@ final class GenJapgollyComponents(reactNames: ReactNames, scalaJsDomNames: Scala
       /* The children value can go in one of three places, depending... */
       val (requireds2, optionals2, varargsChildren: Option[IArray[Arg]]) =
         declaredChildren.headOption match {
-          case Some(Prop(Prop.Variant(p, Left(expr)), _, _)) => ((p -> expr) +: requireds, optionals, None)
-          case Some(Prop(Prop.Variant(p, Right(f)), _, _))   => (requireds, (p -> f) +: optionals, None)
-          case None                                          => (requireds, optionals, Some(IArray(Arg.Variable(Ref(Name("children"))))))
+          case Some(Prop(Prop.Variant(p, Left(expr)), _, _, _)) => ((p -> expr) +: requireds, optionals, None)
+          case Some(Prop(Prop.Variant(p, Right(f)), _, _, _))   => (requireds, (p -> f) +: optionals, None)
+          case None                                             => (requireds, optionals, Some(IArray(Arg.Variable(Ref(Name("children"))))))
         }
 
       val objName = Name("__obj")

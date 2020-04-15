@@ -27,5 +27,61 @@ object AnonListener {
     if (!js.isUndefined(`type`)) __obj.updateDynamic("type")(`type`.asInstanceOf[js.Any])
     __obj.asInstanceOf[AnonListener]
   }
+  @scala.inline
+  implicit class AnonListenerOps[Self <: AnonListener] (val x: Self) extends AnyVal {
+    @scala.inline
+    def duplicate: Self = (js.Dynamic.global.Object.assign(js.Dynamic.literal(), x)).asInstanceOf[Self]
+    @scala.inline
+    def combineWith[Other /* <: js.Any */](other: Other): Self with Other = (js.Dynamic.global.Object.assign(js.Dynamic.literal(), x, other.asInstanceOf[js.Any])).asInstanceOf[Self with Other]
+    @scala.inline
+    def withCapture(capture: scala.Nothing): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("capture")(capture.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutCapture: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "capture")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withListener(listener: scala.Nothing): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("listener")(listener.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutListener: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "listener")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withTargetRef(targetRef: scala.Nothing): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("targetRef")(targetRef.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutTargetRef: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "targetRef")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withType(`type`: scala.Nothing): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("type")(`type`.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutType: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "type")
+        ret.asInstanceOf[Self]
+    }
+  }
+  
 }
 

@@ -113,5 +113,263 @@ object DropzoneOptions {
     if (!js.isUndefined(preventDropOnDocument)) __obj.updateDynamic("preventDropOnDocument")(preventDropOnDocument.asInstanceOf[js.Any])
     __obj.asInstanceOf[DropzoneOptions]
   }
+  @scala.inline
+  implicit class DropzoneOptionsOps[Self <: DropzoneOptions] (val x: Self) extends AnyVal {
+    @scala.inline
+    def duplicate: Self = (js.Dynamic.global.Object.assign(js.Dynamic.literal(), x)).asInstanceOf[Self]
+    @scala.inline
+    def combineWith[Other /* <: js.Any */](other: Other): Self with Other = (js.Dynamic.global.Object.assign(js.Dynamic.literal(), x, other.asInstanceOf[js.Any])).asInstanceOf[Self with Other]
+    @scala.inline
+    def withAcceptArray(accept: js.Array[String]): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("accept")(accept.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withAcceptString(accept: String): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("accept")(accept.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutAccept: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "accept")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withDisabled(disabled: Boolean): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("disabled")(disabled.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutDisabled: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "disabled")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withGetFilesFromEvent(
+      getFilesFromEvent: /* event */ DropEvent => /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify Promise<Array<File | DataTransferItem>> */ _
+    ): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("getFilesFromEvent")(js.Any.fromFunction1(getFilesFromEvent))
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutGetFilesFromEvent: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "getFilesFromEvent")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withMaxSizeInt(maxSize: Int): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("maxSize")(maxSize.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withMaxSizeDouble(maxSize: Double): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("maxSize")(maxSize.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutMaxSize: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "maxSize")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withMinSizeInt(minSize: Int): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("minSize")(minSize.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withMinSizeDouble(minSize: Double): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("minSize")(minSize.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutMinSize: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "minSize")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withMultiple(multiple: Boolean): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("multiple")(multiple.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutMultiple: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "multiple")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withNoClick(noClick: Boolean): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("noClick")(noClick.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutNoClick: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "noClick")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withNoDrag(noDrag: Boolean): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("noDrag")(noDrag.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutNoDrag: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "noDrag")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withNoDragEventsBubbling(noDragEventsBubbling: Boolean): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("noDragEventsBubbling")(noDragEventsBubbling.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutNoDragEventsBubbling: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "noDragEventsBubbling")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withNoKeyboard(noKeyboard: Boolean): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("noKeyboard")(noKeyboard.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutNoKeyboard: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "noKeyboard")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withOnDragEnter(onDragEnter: DragEvent[HTMLElement] => Unit): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("onDragEnter")(js.Any.fromFunction1(onDragEnter))
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutOnDragEnter: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "onDragEnter")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withOnDragLeave(onDragLeave: DragEvent[HTMLElement] => Unit): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("onDragLeave")(js.Any.fromFunction1(onDragLeave))
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutOnDragLeave: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "onDragLeave")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withOnDragOver(onDragOver: DragEvent[HTMLElement] => Unit): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("onDragOver")(js.Any.fromFunction1(onDragOver))
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutOnDragOver: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "onDragOver")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withOnDrop(
+      onDrop: (/* acceptedFiles */ js.Array[
+          /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify File */ _
+        ], /* rejectedFiles */ js.Array[
+          /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify File */ _
+        ], /* event */ DropEvent) => Unit
+    ): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("onDrop")(js.Any.fromFunction3(onDrop))
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutOnDrop: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "onDrop")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withOnDropAccepted(
+      onDropAccepted: (/* files */ js.Array[
+          /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify File */ _
+        ], /* event */ DropEvent) => Unit
+    ): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("onDropAccepted")(js.Any.fromFunction2(onDropAccepted))
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutOnDropAccepted: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "onDropAccepted")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withOnDropRejected(
+      onDropRejected: (/* files */ js.Array[
+          /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify File */ _
+        ], /* event */ DropEvent) => Unit
+    ): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("onDropRejected")(js.Any.fromFunction2(onDropRejected))
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutOnDropRejected: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "onDropRejected")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withOnFileDialogCancel(onFileDialogCancel: () => Unit): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("onFileDialogCancel")(js.Any.fromFunction0(onFileDialogCancel))
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutOnFileDialogCancel: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "onFileDialogCancel")
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withPreventDropOnDocument(preventDropOnDocument: Boolean): Self = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("preventDropOnDocument")(preventDropOnDocument.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self]
+    }
+    @scala.inline
+    def withoutPreventDropOnDocument: Self = {
+        val ret = this.duplicate
+        js.special.delete(ret, "preventDropOnDocument")
+        ret.asInstanceOf[Self]
+    }
+  }
+  
 }
 

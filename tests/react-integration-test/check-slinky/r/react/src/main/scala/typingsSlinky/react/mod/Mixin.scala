@@ -65,5 +65,115 @@ object Mixin {
     if (statics != null) __obj.updateDynamic("statics")(statics.asInstanceOf[js.Any])
     __obj.asInstanceOf[Mixin[P, S]]
   }
+  @scala.inline
+  implicit class MixinOps[Self[p, s] <: Mixin[p, s], P, S] (val x: Self[P, S]) extends AnyVal {
+    @scala.inline
+    def duplicate: Self[P, S] = (js.Dynamic.global.Object.assign(js.Dynamic.literal(), x)).asInstanceOf[Self[P, S]]
+    @scala.inline
+    def combineWith[Other /* <: js.Any */](other: Other): (Self[P, S]) with Other = (js.Dynamic.global.Object.assign(js.Dynamic.literal(), x, other.asInstanceOf[js.Any])).asInstanceOf[(Self[P, S]) with Other]
+    @scala.inline
+    def withChildContextTypes(
+      childContextTypes: /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify PropTypes.ValidationMap<T> */ js.Any
+    ): Self[P, S] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("childContextTypes")(childContextTypes.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withoutChildContextTypes: Self[P, S] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "childContextTypes")
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withContextTypes(
+      contextTypes: /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify PropTypes.ValidationMap<T> */ js.Any
+    ): Self[P, S] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("contextTypes")(contextTypes.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withoutContextTypes: Self[P, S] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "contextTypes")
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withDisplayName(displayName: String): Self[P, S] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("displayName")(displayName.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withoutDisplayName: Self[P, S] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "displayName")
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withGetDefaultProps(getDefaultProps: () => P): Self[P, S] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("getDefaultProps")(js.Any.fromFunction0(getDefaultProps))
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withoutGetDefaultProps: Self[P, S] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "getDefaultProps")
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withGetInitialState(getInitialState: () => S): Self[P, S] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("getInitialState")(js.Any.fromFunction0(getInitialState))
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withoutGetInitialState: Self[P, S] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "getInitialState")
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withMixins(mixins: js.Array[Mixin[P, S]]): Self[P, S] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("mixins")(mixins.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withoutMixins: Self[P, S] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "mixins")
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withPropTypes(
+      propTypes: /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify PropTypes.ValidationMap<T> */ js.Any
+    ): Self[P, S] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("propTypes")(propTypes.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withoutPropTypes: Self[P, S] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "propTypes")
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withStatics(statics: StringDictionary[js.Any]): Self[P, S] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("statics")(statics.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[P, S]]
+    }
+    @scala.inline
+    def withoutStatics: Self[P, S] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "statics")
+        ret.asInstanceOf[Self[P, S]]
+    }
+  }
+  
 }
 

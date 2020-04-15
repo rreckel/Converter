@@ -74,7 +74,7 @@ object FindProps {
     }
 
     val main = Prop.Variant(param, Right(fn))
-    name -> Prop(main, isInherited = true, Left(ref))
+    name -> Prop(main, isInherited = true, variants = IArray(main), Left(ref))
   }
 
   case class Filtered[No](yes: IArray[Prop], no: No)

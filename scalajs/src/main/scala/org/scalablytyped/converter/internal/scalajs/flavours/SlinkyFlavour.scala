@@ -25,7 +25,7 @@ case class SlinkyFlavour(outputPkg: Name) extends ReactFlavourImpl {
       }
 
     val withCompanions =
-      new GenCompanions(MemberToProp.Default, findProps).visitPackageTree(scope)(tree)
+      new GenCompanions(MemberToProp.Default, findProps, genImplicitSyntax = true).visitPackageTree(scope)(tree)
 
     val withComponents = if (involvesReact(scope)) {
       val components: IArray[Component] =

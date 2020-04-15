@@ -430,5 +430,109 @@ object ThHTMLAttributes {
     if (vocab != null) __obj.updateDynamic("vocab")(vocab.asInstanceOf[js.Any])
     __obj.asInstanceOf[ThHTMLAttributes[T]]
   }
+  @scala.inline
+  implicit class ThHTMLAttributesOps[Self[t] <: ThHTMLAttributes[t], T] (val x: Self[T]) extends AnyVal {
+    @scala.inline
+    def duplicate: Self[T] = (js.Dynamic.global.Object.assign(js.Dynamic.literal(), x)).asInstanceOf[Self[T]]
+    @scala.inline
+    def combineWith[Other /* <: js.Any */](other: Other): Self[T] with Other = (js.Dynamic.global.Object.assign(js.Dynamic.literal(), x, other.asInstanceOf[js.Any])).asInstanceOf[Self[T] with Other]
+    @scala.inline
+    def withAlignRight(align: right): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("align")(align.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withAlignCenter(align: center): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("align")(align.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withAlignLeft(align: left): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("align")(align.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withAlignChar(align: char): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("align")(align.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withAlignJustify(align: justify): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("align")(align.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutAlign: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "align")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withColSpanInt(colSpan: Int): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("colSpan")(colSpan.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withColSpanDouble(colSpan: Double): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("colSpan")(colSpan.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutColSpan: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "colSpan")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withHeaders(headers: String): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("headers")(headers.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutHeaders: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "headers")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withRowSpanInt(rowSpan: Int): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("rowSpan")(rowSpan.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withRowSpanDouble(rowSpan: Double): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("rowSpan")(rowSpan.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutRowSpan: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "rowSpan")
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withScope(scope: String): Self[T] = {
+        val ret = this.duplicate.asInstanceOf[js.Dynamic]
+        ret.updateDynamic("scope")(scope.asInstanceOf[js.Any])
+        ret.asInstanceOf[Self[T]]
+    }
+    @scala.inline
+    def withoutScope: Self[T] = {
+        val ret = this.duplicate
+        js.special.delete(ret, "scope")
+        ret.asInstanceOf[Self[T]]
+    }
+  }
+  
 }
 
